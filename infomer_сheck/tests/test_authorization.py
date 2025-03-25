@@ -11,7 +11,10 @@ def test_authorization_entry_in_community(page):
 
     auth = AuthorizationPage(page)
     auth.click_registration()
+    #вообще не используйте networkidle по возможности,  это притащили из смутных времен папитира, почем зря. когда папитир делали относились к нему как к затычке.
+    # network idle можно использовать только в своем проекте и в небольшом. без рекламы, без аналитики, без ws. когда начинается реальная жизнь в сети, он в общем бесполезный. ну и как правило он не нужен, действие само подождет что ему надо
     page.wait_for_load_state("networkidle")
+    #Креды спрятать в env
     auth.fill_credentials("", "")
     auth.click_login()
 

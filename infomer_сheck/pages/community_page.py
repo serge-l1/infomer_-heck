@@ -1,12 +1,14 @@
 from .base_page import BasePage
 
 class CommunityPage(BasePage):
+    #https://playwright.dev/python/docs/test-runners#configure-base-url
     url = "https://sport.mos.ru/community/XrqQBLk9oV"
 
     def navigate(self):
         self.page.goto(self.url)
 
     def apply_request(self):
+        #Абсолютные локаторы зло
         self.page.locator("xpath=//*[@id='root']/div[1]/main/div[1]/div/div[2]/div[2]/div/div[2]/button[1]").wait_for()
         self.page.locator("xpath=//*[@id='root']/div[1]/main/div[1]/div/div[2]/div[2]/div/div[2]/button[1]").click()
 
